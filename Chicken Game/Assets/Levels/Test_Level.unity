@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 163352917}
   - component: {fileID: 163352916}
   - component: {fileID: 163352915}
+  - component: {fileID: 163352920}
   - component: {fileID: 163352914}
   - component: {fileID: 163352919}
   - component: {fileID: 163352918}
@@ -186,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 163352913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1709416, y: 0.5, z: 2.46}
+  m_LocalPosition: {x: 3, y: 0.5, z: 17.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -200,13 +201,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 163352913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c2ee8e2774d7b4c9a6ca70e3e20034, type: 3}
+  m_Script: {fileID: 11500000, guid: ac119acc9e665f94aa3fb188929cd8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 985806601}
+  enemy: {fileID: 0}
   moveSpeed: 10
-  maxDist: 100
-  minDist: 25
+  target: {fileID: 985806601}
 --- !u!54 &163352919
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 163352913}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -222,6 +222,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &163352920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163352913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 1, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &173263943
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +333,10 @@ GameObject:
   - component: {fileID: 248923826}
   - component: {fileID: 248923825}
   - component: {fileID: 248923824}
+  - component: {fileID: 248923828}
   - component: {fileID: 248923823}
+  - component: {fileID: 248923827}
+  - component: {fileID: 248923829}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -387,12 +402,54 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248923822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.95, y: 0.5, z: -3.92}
-  m_LocalScale: {x: 2.7881584, y: 0.78987175, z: 1}
+  m_LocalPosition: {x: 16.692, y: 0.427, z: -3.92}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248923827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248923822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f960cab66373e64d93a6a44affd4a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  moveSpeed: 10
+  Player: {fileID: 985806601}
+  Chicken: {fileID: 163352917}
+--- !u!65 &248923828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248923822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 1, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &248923829
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248923822}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &872034234
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,10 +559,10 @@ GameObject:
   m_Component:
   - component: {fileID: 985806601}
   - component: {fileID: 985806600}
-  - component: {fileID: 985806599}
   - component: {fileID: 985806598}
   - component: {fileID: 985806602}
   - component: {fileID: 985806603}
+  - component: {fileID: 985806599}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -545,8 +602,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &985806599
-CapsuleCollider:
+--- !u!65 &985806599
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -554,9 +611,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &985806600
 MeshFilter:
@@ -572,7 +628,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 985806597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7830782, y: 1.17, z: -7.8}
+  m_LocalPosition: {x: 0.7830782, y: 1, z: -31.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 173263948}
@@ -600,7 +656,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 985806597}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -822,6 +878,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
