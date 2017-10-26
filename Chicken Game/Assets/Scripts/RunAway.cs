@@ -9,7 +9,9 @@ public class RunAway : MonoBehaviour {
 
 	public float moveSpeed;
 
-	public Transform target;
+	public Transform Player;
+	public Transform Wolf;
+	public Transform PenLocation;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +23,27 @@ public class RunAway : MonoBehaviour {
 		if (other.gameObject.name == "Player")
 		{
 			Debug.Log("Player has entered chicken's trigger");
-			transform.LookAt(target);
+			transform.LookAt(Player);
 			transform.Translate(Vector3.back*moveSpeed*Time.deltaTime);
 		}
+		else if (other.gameObject.name == "Wolf")
+		{
+			Debug.Log("Wolf has entered chicken's trigger");
+			transform.LookAt(Wolf);
+			transform.Translate(Vector3.back*moveSpeed*Time.deltaTime);
+		}
+	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.name == "Player")
+		{
+			//Destroy(gameObject); 
+			//ScoreManager.AddPoints(points);
+
+			transform.position = PenLocation.position;
+			transform.rotation = PenLocation.rotation;
+		}
+
 	}
 }
