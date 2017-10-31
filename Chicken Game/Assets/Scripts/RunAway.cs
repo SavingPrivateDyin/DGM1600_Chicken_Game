@@ -12,6 +12,8 @@ public class RunAway : MonoBehaviour {
 	public int isRunning = 1;
 	public int numberOfSeconds;
 
+	public int points = 10;
+
 	public Transform Player;
 	public Transform Wolf;
 	public Transform PenLocation;
@@ -62,8 +64,7 @@ public class RunAway : MonoBehaviour {
 		if(other.gameObject.name == "Player")
 		{
 			//Destroy(gameObject); 
-			//ScoreManager.AddPoints(points);
-
+			ScoreManager.AddPoints(points);
 			transform.position = PenLocation.position;
 			transform.rotation = PenLocation.rotation;
 		}
