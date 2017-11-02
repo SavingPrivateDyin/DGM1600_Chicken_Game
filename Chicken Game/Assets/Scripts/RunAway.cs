@@ -61,6 +61,7 @@ public class RunAway : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
+		
 		if(other.gameObject.name == "Player")
 		{
 			//Destroy(gameObject); 
