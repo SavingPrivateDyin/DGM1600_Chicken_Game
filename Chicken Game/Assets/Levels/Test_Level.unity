@@ -395,6 +395,8 @@ MonoBehaviour:
   Player: {fileID: 985806601}
   Chicken: {fileID: 163352917}
   damage: 5
+  speed: 10
+  rotSpeed: 60
 --- !u!65 &248923828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -434,6 +436,103 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 60, y: 1, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &269439950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 269439955}
+  - component: {fileID: 269439954}
+  - component: {fileID: 269439953}
+  - component: {fileID: 269439952}
+  - component: {fileID: 269439951}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &269439951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbfb71a9ff14a428e19d9680f87508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  scale: {x: 1, y: 1, z: 1}
+--- !u!23 &269439952
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &269439953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &269439954
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &269439955
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.62, y: 0.53, z: -20.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317548500
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127, y: 22.580032}
+  m_AnchoredPosition: {x: 130.2, y: 22.580032}
   m_SizeDelta: {x: 153.04, y: 51.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317548503
@@ -522,7 +621,7 @@ GameObject:
   - component: {fileID: 339703721}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -620,7 +719,7 @@ GameObject:
   - component: {fileID: 510494853}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -718,7 +817,7 @@ GameObject:
   - component: {fileID: 651291856}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -816,7 +915,7 @@ GameObject:
   - component: {fileID: 679474738}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -991,7 +1090,7 @@ GameObject:
   - component: {fileID: 815650789}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -1465,7 +1564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 25.059998}
+  m_AnchoredPosition: {x: 4.2, y: 25.059998}
   m_SizeDelta: {x: 176.88, y: 46.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272097567
@@ -1520,17 +1619,15 @@ GameObject:
   - component: {fileID: 1284620240}
   - component: {fileID: 1284620239}
   - component: {fileID: 1284620238}
-  - component: {fileID: 1284620237}
-  - component: {fileID: 1284620235}
   - component: {fileID: 1284620236}
-  - component: {fileID: 1284620242}
+  - component: {fileID: 1284620235}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Chicken
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1284620235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,19 +1636,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1284620234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac119acc9e665f94aa3fb188929cd8f1, type: 3}
+  m_Script: {fileID: 11500000, guid: ee22623541d5dfc45953e7973c3649b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  randNum: 3
-  moveSpeed: 10
-  isRunning: 1
-  numberOfSeconds: 2
-  points: 10
-  Player: {fileID: 985806601}
-  Wolf: {fileID: 248923826}
-  PenLocation: {fileID: 2082316715}
-  destination: {fileID: 2091109438}
+  speed: 10
+  rotSpeed: 60
 --- !u!54 &1284620236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1568,28 +1657,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!195 &1284620237
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 195557608449038100, guid: ae0ae535fbdc93f43b1de3b44e21899f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1284620234}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 10
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!23 &1284620238
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1657,18 +1724,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1284620234}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1284620242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1284620234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f66dea22089a643458342fbdb9a5f74d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
 --- !u!1 &1296616018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 22.580017}
+  m_AnchoredPosition: {x: 182.5, y: 22.580017}
   m_SizeDelta: {x: 153.04, y: 51.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296616021
@@ -1995,7 +2050,7 @@ GameObject:
   - component: {fileID: 1528242366}
   m_Layer: 0
   m_Name: Silo#2
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -2059,7 +2114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1528242365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.26, y: 6.79, z: 9.26}
+  m_LocalPosition: {x: 1.7, y: 6.79, z: 9.26}
   m_LocalScale: {x: 5, y: 7, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2079,7 +2134,7 @@ GameObject:
   - component: {fileID: 1677967021}
   m_Layer: 0
   m_Name: ChickenPen
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -2180,7 +2235,7 @@ GameObject:
   - component: {fileID: 1799343104}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
@@ -2321,7 +2376,7 @@ GameObject:
   - component: {fileID: 1916606711}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2587,7 +2642,7 @@ GameObject:
   - component: {fileID: 1966795876}
   m_Layer: 0
   m_Name: Silo#1
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2651,7 +2706,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966795875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.37, y: 5.65, z: 0}
+  m_LocalPosition: {x: 29.4, y: 5.65, z: 0}
   m_LocalScale: {x: 5, y: 7, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2878,7 +2933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 186, y: 22.580017}
+  m_AnchoredPosition: {x: 199.3, y: 22.580017}
   m_SizeDelta: {x: 153.04, y: 51.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2101336806
