@@ -6,8 +6,8 @@ public class WaypointFollow : MonoBehaviour {
 
 	public GameObject[] waypoints;
 	int currentWP = 0;
-	float speed = 20.0f;
-	float accuracy = 0.10f;
+	float speed = 10.0f;
+	float accuracy = 0.15f;
 	float rotSpeed = 5.0f;
 	// Use this for initialization
 	void Start () {

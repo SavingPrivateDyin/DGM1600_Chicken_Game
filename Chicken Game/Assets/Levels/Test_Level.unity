@@ -380,12 +380,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f960cab66373e64d93a6a44affd4a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pcHealth: {fileID: 1849723125}
   enemy: {fileID: 0}
   moveSpeed: 0
   Player: {fileID: 985806601}
   Chicken: {fileID: 163352917}
   chicken: {fileID: 0}
-  damage: 0
+  wolf: {fileID: 0}
+  damage: 1
   speed: 10
   rotSpeed: 120
   chickens:
@@ -430,6 +432,7 @@ GameObject:
   - component: {fileID: 269439953}
   - component: {fileID: 269439952}
   - component: {fileID: 269439951}
+  - component: {fileID: 269439956}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -443,7 +446,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 269439950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49bbfb71a9ff14a428e19d9680f87508, type: 3}
   m_Name: 
@@ -515,6 +518,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269439956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269439950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66dea22089a643458342fbdb9a5f74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
 --- !u!1 &317548500
 GameObject:
   m_ObjectHideFlags: 0

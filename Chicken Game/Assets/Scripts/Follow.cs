@@ -5,6 +5,7 @@ using UnityEngine;
 public class Follow : MonoBehaviour 
 {
 
+	public GameObject pcHealth;
 	public Rigidbody enemy;
 
 	public float moveSpeed;
@@ -14,6 +15,7 @@ public class Follow : MonoBehaviour
 	public Transform Chicken;
 
 	public GameObject chicken;
+	public GameObject wolf;
 
 	public int damage;
 	public float speed = 10.0f;
@@ -27,7 +29,7 @@ public class Follow : MonoBehaviour
 	}
 	void Update()
 	{
-		
+		//if (wolf.transform)
 	}
 
 	void Wander(){
@@ -47,8 +49,8 @@ public class Follow : MonoBehaviour
 			else if (other.gameObject.tag == "Chicken")
 				{
 					//Debug.Log("Chicken has entered wolf's trigger");
-					//gameObject currentChicken = chickens[i];
-					//transform.LookAt(chickens[1]);
+					// gameObject currentChicken = chickens[i];
+					// transform.LookAt(chickens[]);
 					transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
 				}
 			else if (other.gameObject.tag == "wall")
@@ -65,21 +67,30 @@ public class Follow : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		// if(other.gameObject.name == "Player"){
-		// 	PlayerHealth.TakeDamage(damage);
-		// }
-		print("wolf Attacks!");
-		var hit = other.gameObject;
-		var health = hit.GetComponent<PlayerHealth>();
-		
-		if(health != null){
-			health.TakeDamage(damage);
-			
-		}
-
-		if (other.gameObject.tag == "Chicken")
+		if (other.gameObject.name == "Player")
 		{
-			Destroy(chickens[1]);
+			
+			//var hit = other.gameObject;
+			//var health = hit.GetComponent<PlayerHealth>();
+			
+			
+			if(pcHealth != null)
+			{
+				print("wolf Attacks!");
+				pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+			
+			}
+			// if(health != null)
+			// {
+				
+			// 	health.TakeDamage(damage);
+			
+			// }
+
+			if (other.gameObject.tag == "Chicken")
+			{
+				Destroy(chickens[1]);
+			}
 		}
 
 	}

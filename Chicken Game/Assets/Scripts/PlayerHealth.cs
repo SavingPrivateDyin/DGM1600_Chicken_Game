@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public Text maxHP;
 
-	
+		
 	// Update is called once per frame
 	void Update () {
 		hp.text = currentHealth.ToString();
