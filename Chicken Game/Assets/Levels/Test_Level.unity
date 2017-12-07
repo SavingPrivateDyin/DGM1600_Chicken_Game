@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &248923823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2431,6 +2431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScore: 10
   scoreManager: {fileID: 1918078432}
+  currentScore: 0
   winText: {fileID: 1735030913}
 --- !u!1 &1916606709
 GameObject:
@@ -2616,7 +2617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6daee2ccdaffbde499c6c31ff4be0847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreAmount: 0
+  winText: {fileID: 1735030913}
+  winScore: 50
   text: {fileID: 1918078434}
 --- !u!1 &1945693916
 GameObject:
