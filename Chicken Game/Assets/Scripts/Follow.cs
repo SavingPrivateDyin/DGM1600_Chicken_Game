@@ -12,25 +12,23 @@ public class Follow : MonoBehaviour
 
 	public Transform Player;
 
-	public Transform Chicken;
+	// public Transform Chicken;
+	// public GameObject[] chickens;
 
-	public GameObject chicken;
-	public GameObject wolf;
+	// public GameObject chicken;
+	// public GameObject wolf;
 
 	public int damage;
-	public float speed = 10.0f;
-	public float rotSpeed = 60.0f;
+	public float speed = 12.0f;
+	public float rotSpeed = 100.0f;
 	Vector3 turnAround = new Vector3(0,1,0);
-	public GameObject[] chickens;
+	
 
-	void Start()
-	{
-		chickens = GameObject.FindGameObjectsWithTag("Chicken");
-	}
-	void Update()
-	{
-		//if (wolf.transform)
-	}
+	
+	// void Start()
+	// {
+	// 	chickens = GameObject.FindGameObjectsWithTag("Chicken");
+	// }
 
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -46,13 +44,6 @@ public class Follow : MonoBehaviour
 					transform.LookAt(Player);
 					transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
 				}
-			else if (other.gameObject.tag == "Chicken")
-				{
-					//Debug.Log("Chicken has entered wolf's trigger");
-					// gameObject currentChicken = chickens[i];
-					// transform.LookAt(chickens[]);
-					transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
-				}
 			else if (other.gameObject.tag == "wall")
 				{
 					Debug.Log("chicken triggered wall");
@@ -63,6 +54,13 @@ public class Follow : MonoBehaviour
 			{
 				Wander();
 			}
+			// else if (other.gameObject.tag == "chickens")
+			// 	{
+			// 		Debug.Log("Chicken has entered wolf's trigger");
+			// 		// gameObject currentChicken = chickens[i];
+			// 		// transform.LookAt(chickens[]);
+			// 		transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
+			// 	}
 		}
 
 	void OnCollisionEnter(Collision other)
@@ -70,27 +68,17 @@ public class Follow : MonoBehaviour
 		if (other.gameObject.name == "Player")
 		{
 			
-			//var hit = other.gameObject;
-			//var health = hit.GetComponent<PlayerHealth>();
-			
-			
 			if(pcHealth != null)
 			{
 				print("wolf Attacks!");
 				pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
 			
 			}
-			// if(health != null)
-			// {
-				
-			// 	health.TakeDamage(damage);
 			
-			// }
-
-			if (other.gameObject.tag == "Chicken")
-			{
-				Destroy(chickens[1]);
-			}
+		}
+		else if (other.gameObject.tag == "Chicken")
+		{
+			Destroy(gameObject);
 		}
 
 	}

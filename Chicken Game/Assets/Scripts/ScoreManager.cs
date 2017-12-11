@@ -7,13 +7,13 @@ public class ScoreManager : MonoBehaviour {
 
 	public static int score;
 	public Text winText;
-	public int winScore;
-	public Text text;
+	public int winScore = 50;
+	public Text currentScore;
 
 	// Use this for initialization
 	void Start () {
 		winText.GetComponent<Text>().enabled = false;
-		text = GetComponent<Text>();
+		currentScore.text = score.ToString();
 		   score = 0;
 	}
 	
@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour {
 		if(score < 0){
 			score = 0;
 
-		text.text = " " + score;
+		currentScore.text = " " + score;
 		}
 		//if the player wins display win text
 		if( winScore == score )

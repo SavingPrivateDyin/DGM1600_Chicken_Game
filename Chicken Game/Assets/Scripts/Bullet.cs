@@ -15,8 +15,11 @@ public class Bullet : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other)
 	{
+		
 		var hit = other.gameObject;
 		var health = hit.GetComponent<wolfHealth>();
+		Debug.Log("Wolf's Health: " + 3);
+		
 
 		if(health != null)
 		{

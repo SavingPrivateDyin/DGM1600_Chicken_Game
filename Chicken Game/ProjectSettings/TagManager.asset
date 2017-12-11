@@ -7,6 +7,7 @@ TagManager:
   - Chicken
   - waypoints
   - wall
+  - chickens
   layers:
   - Default
   - TransparentFX
