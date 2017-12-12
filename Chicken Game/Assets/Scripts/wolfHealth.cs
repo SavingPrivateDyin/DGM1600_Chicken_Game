@@ -18,12 +18,13 @@ public class wolfHealth : MonoBehaviour {
 	public void TakeDamage(int amount)
 	{
 		currentHealth -= amount;
-		Debug.Log(currentHealth);
+		// Debug.Log(currentHealth);
 		if(currentHealth <= 0)
 		{
 			currentHealth = 0;
-			print("wolf id dead!");
+			// print("wolf id dead!");
 			ScoreManager.AddPoints(points);
+			// Debug.Log(points);
 			
 			transform.position = spawnPoint.position;
 			currentHealth = maxHealth;

@@ -11,6 +11,8 @@ public class Follow : MonoBehaviour
 	public float moveSpeed;
 
 	public Transform Player;
+	public Transform Wolf;
+	public Transform spawnPoint;
 
 	// public Transform Chicken;
 	// public GameObject[] chickens;
@@ -24,11 +26,14 @@ public class Follow : MonoBehaviour
 	Vector3 turnAround = new Vector3(0,1,0);
 	
 
-	
-	// void Start()
-	// {
-	// 	chickens = GameObject.FindGameObjectsWithTag("Chicken");
-	// }
+	void Update(){
+		
+		if(Wolf.position.y < .25f)
+		{
+			transform.position = spawnPoint.position;
+			transform.rotation = spawnPoint.rotation;
+		}
+	}
 
 	void Wander(){
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -46,7 +51,7 @@ public class Follow : MonoBehaviour
 				}
 			else if (other.gameObject.tag == "wall")
 				{
-					Debug.Log("chicken triggered wall");
+					// Debug.Log("chicken triggered wall");
 					transform.Rotate(turnAround * rotSpeed * Time.deltaTime);
 					
 				}
@@ -70,7 +75,7 @@ public class Follow : MonoBehaviour
 			
 			if(pcHealth != null)
 			{
-				print("wolf Attacks!");
+				// print("wolf Attacks!");
 				pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
 			
 			}

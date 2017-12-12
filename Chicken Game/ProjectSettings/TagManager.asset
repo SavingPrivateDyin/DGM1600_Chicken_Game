@@ -8,6 +8,9 @@ TagManager:
   - waypoints
   - wall
   - chickens
+  - bullet
+  - wolf
+  - player
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	public int damage = 1;
-
+	public int points = 15;
 	public int time = 2;
 
 	// Use this for initialization
@@ -15,15 +15,39 @@ public class Bullet : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other)
 	{
-		
-		var hit = other.gameObject;
-		var health = hit.GetComponent<wolfHealth>();
-		Debug.Log("Wolf's Health: " + 3);
+		if(other.gameObject.tag == "wolf")
+		{
+			// Debug.Log("YOU HIT THE WOLF");
+			var hit = other.gameObject;
+			var health = hit.GetComponent<wolfHealth>();
+			// var currentScore = GetComponent<ScoreManager>();
 		
 
-		if(health != null)
+			if(health != null)
+			{
+				health.TakeDamage(damage);
+			}
+			// if(currentScore != null)
+			// {
+			// 	ScoreManager.MinusPoints(points);
+			// 	Debug.Log("SUBTRACTION POWERS");
+			// }
+		}
+		if(other.gameObject.tag == "chickens")
 		{
-			health.TakeDamage(damage);
+			// Debug.Log("YOU HIT A CHICKEN");
+			var hit = other.gameObject;
+			var health = hit.GetComponent<chickenHealth>();
+			// var pcHealth = other.gameObject.GetComponent<PlayerHealth>();
+			// Debug.Log("Chickens's Health: " + 1);
+		
+
+			if(health != null)
+			{
+				health.TakeDamage(damage);
+				
+			}
+			
 		}
 	}
 

@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour {
 
 	public static int score;
+	public int currentScore;
 	public Text winText;
-	public int winScore = 50;
-	public Text currentScore;
+	public int winScore;
+	public Text text;
 
+	void Awake(){
+		Time.timeScale = 1;
+	}
 	// Use this for initialization
 	void Start () {
 		winText.GetComponent<Text>().enabled = false;
-		currentScore.text = score.ToString();
+		text = GetComponent<Text>();
+		// currentScore.text = score.ToString();
 		   score = 0;
 	}
 	
@@ -21,13 +26,13 @@ public class ScoreManager : MonoBehaviour {
 	void Update () {
 		if(score < 0){
 			score = 0;
-
-		currentScore.text = " " + score;
 		}
+		currentScore = score;
+		text.text = currentScore.ToString();
 		//if the player wins display win text
-		if( winScore == score )
+		if(score >= winScore)
 		{
-			print("win score reached dummy " + score);
+			// print("win score reached dummy " + score);
 			winText.GetComponent<Text>().enabled = true; 
 			Time.timeScale = 0;
 		}
@@ -38,8 +43,14 @@ public class ScoreManager : MonoBehaviour {
 
 	public static void AddPoints(int pointsToAdd){
 		score += pointsToAdd;
+		// Debug.Log(score);
 	}
 
+	public static void MinusPoints(int pointsToMinus){
+		score -= pointsToMinus;
+		// Debug.Log(score);
+	}
+	
 	public void Reset(){
 		score = 0;
 	}

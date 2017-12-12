@@ -32,13 +32,13 @@ public class RunAway : MonoBehaviour {
 	{
 		if (other.gameObject.name == "Player")
 		{
-			Debug.Log("Player has entered chicken's trigger");
+			// Debug.Log("Player has entered chicken's trigger");
 			transform.LookAt(Player);
 			transform.Translate(Vector3.back*moveSpeed*Time.deltaTime);
 		}
 		else if (other.gameObject.name == "Wolf")
 		{
-			Debug.Log("Wolf has entered chicken's trigger");
+			// Debug.Log("Wolf has entered chicken's trigger");
 			transform.LookAt(Wolf);
 			transform.Translate(Vector3.back*moveSpeed*Time.deltaTime);
 		}

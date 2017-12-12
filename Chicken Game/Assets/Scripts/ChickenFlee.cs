@@ -7,17 +7,31 @@ public class ChickenFlee : MonoBehaviour {
 	public Transform Player;
 	public Transform Wolf;
 	public Transform Chicken;
-	public Collider other;
-	public Collider capture;
+	// public Collider other;
+	// public Collider capture;
 	public int points = 10;
+	public int minusPoints;
 	public Transform PenLocation;
 	public Transform spawnPoint;
+	public GameObject chickenClone;
+	public Vector3 currentPos;
+	// public int currentHealth = 0;
+	// public int maxHealth = 1;
 
 
 	// // Use this for initialization
 	void Start () {
 		var ChickenWaypoint = this.gameObject.GetComponent<ChickenWaypoint>();
             ChickenWaypoint.enabled = true;
+	}
+
+	void Update(){
+		
+		if(Chicken.position.y < -5.0f)
+		{
+			transform.position = spawnPoint.position;
+			transform.rotation = spawnPoint.rotation;
+		}
 	}
 	
 	
@@ -28,9 +42,9 @@ public class ChickenFlee : MonoBehaviour {
 		{
 			var ChickenWaypoint = this.gameObject.GetComponent<ChickenWaypoint>();
             ChickenWaypoint.enabled = false;
-			Debug.Log("Trigger Enter disables Checkpoint");
+			// Debug.Log("Trigger Enter disables Checkpoint");
 			
-			Debug.Log("Player has entered chicken's trigger");
+			// Debug.Log("Player has entered chicken's trigger");
 			transform.LookAt(Player);
 			transform.Translate(Vector3.back.normalized * speed * Time.deltaTime);
 			// if (Chicken.position.y <= .5f)
@@ -42,7 +56,7 @@ public class ChickenFlee : MonoBehaviour {
 		{
 			var ChickenWaypoint = this.gameObject.GetComponent<ChickenWaypoint>();
             ChickenWaypoint.enabled = false;
-			Debug.Log("Wolf has entered chicken's trigger");
+			// Debug.Log("Wolf has entered chicken's trigger");
 			transform.LookAt(Wolf);
 			transform.Translate(Vector3.back * speed * Time.deltaTime);
 			
@@ -54,19 +68,21 @@ public class ChickenFlee : MonoBehaviour {
 	}
 		
 
-	void OnCollisionEnter(Collision capture)
+	void OnCollisionEnter(Collision col)
 	{
-		
-		if(capture.gameObject.name == "Player")
+		if(col.gameObject.tag == "player")
 		{
-			//Destroy(gameObject); 
-			Debug.Log("Player touched the chicken");
+			
+			// print("Player touched the chicken");
 			ScoreManager.AddPoints(points);
+			// Debug.Log("Player Earns: " + points + "points");
 			transform.position = spawnPoint.position;
+			Instantiate(chickenClone, PenLocation.position, PenLocation.rotation);
 			
 			// transform.position = PenLocation.position;
 			// transform.rotation = PenLocation.rotation;
+		
 		}
-
+		
 	}
 }
